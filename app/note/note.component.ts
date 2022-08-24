@@ -15,7 +15,7 @@ export class NoteComponent {
   @Output() dismiss = new EventEmitter();
   @Output() focusout = new EventEmitter();
   constructor(private el:ElementRef) {
-   const {webkitSpeechRecognition} : IWindow = <IWindow>window;
+   const {webkitSpeechRecognition} : IWindow = <IWindow><unknown>window;
     this.recognition = new webkitSpeechRecognition();
     this.recognition.onresult = (event)=> {
       this.el.nativeElement.querySelector(".content").innerText += event.results[0][0].transcript
